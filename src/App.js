@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import './App.css'
 import SearchIcon from './search.svg'
+import Movie from './Movie'
 
 const API_URL = 'https://www.omdbapi.com/?i=tt3896198&apikey=2f016ff9';
 
@@ -59,23 +60,7 @@ const App = () => {
                 
         </div>
         <div className="container">
-            <div className="movie">
-                <div>
-                    <p>
-                        {movie.Year}
-                    </p>
-                </div>
-    
-                <div>
-                    <img src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'} alt={movie.Title}/>
-                </div>
-
-                <div>
-                    <span>
-                        {movie.type}
-                    </span>
-                </div>
-            </div>
+            <Movie props={movie} />
         </div>
         {/* {loading ? 
             (
