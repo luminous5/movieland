@@ -24,7 +24,7 @@ imdbID
 
 const App = () => {
     const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(0)
+    const [loading, setLoading] = useState(1)
 
     useEffect(() => {
             const searchMovies = async (title) => {
@@ -42,9 +42,6 @@ const App = () => {
 
       }, []);
 
-      console.log(data);
-
-
     return (
        <div className="app">
         <h1>Movie Search</h1>
@@ -59,17 +56,20 @@ const App = () => {
             />
                 
         </div>
-        <div className="container">
-            <Movie props={movie} />
-        </div>
-        {/* {loading ? 
+
+        {loading ? 
             (
                 <p>Loading data ...</p>
             ) : 
             (
-                <p>Data : {JSON.stringify(data)}</p>
+                    <div className="container">
+                    {data.map(movie => {
+                        return <Movie movie={movie} />
+                    })}
+                </div>
             )
-        } */}
+        }
+
        </div>
     );
 }
