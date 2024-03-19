@@ -5,25 +5,8 @@ import Movie from './Movie'
 
 const API_URL = 'https://www.omdbapi.com/?i=tt3896198&apikey=2f016ff9';
 
-const movie = {
-    Poster: 
-"https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-Title
-: 
-"Batman v Superman: Dawn of Justice",
-Type
-: 
-"movie",
-Year
-: 
-"2016",
-imdbID
-: 
-"tt2975590"
-}
-
 const App = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(1)
 
     useEffect(() => {
@@ -62,7 +45,8 @@ const App = () => {
                 <p>Loading data ...</p>
             ) : 
             (
-                    <div className="container">
+                
+                <div className="container">
                     {data.map(movie => {
                         return <Movie movie={movie} />
                     })}
