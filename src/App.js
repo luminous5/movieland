@@ -45,11 +45,14 @@ const App = () => {
                 <p>Loading data ...</p>
             ) : 
             (
-                
-                <div className="container">
-                    {data.map(movie => {
-                        return <Movie movie={movie} />
-                    })}
+                <div>
+                    {data?.length > 0 && 
+                          <div className="container">
+                          {data.map(movie => {
+                              return <Movie movie={movie} />
+                          })}
+                      </div>}
+              
                 </div>
             )
         }
